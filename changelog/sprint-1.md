@@ -1,31 +1,35 @@
 # Scrum Report (Sprint 1)
-| From dd/mm/yyyy to dd/mm/yyyy
+| From 26/11/2023 to 27/11/2023
 
-## Team (Insert your name)
-| NPM           | Name        |
-| ------------- |-------------|
-| 140810xx00xx  | John Doe    |
-| 140810xx00xx  | Jane Doe    |
-| 140810xx00xx  | Lorem Ipsum |
+## Team RAN
+| NPM           | Name        | Kode |
+| ------------- |-------------|------|
+| 140810220020  | Nurkahfi Amran Rahmada    | N |
+| 140810220076  | Tabina Adelia Rafa    | R |
+| 140810220078  | Anel Fuad Abiyyu | A |
 
 ## Sprint Overview
 | Planned (n)   | Completed (n) |
 | ------------- |-------------- |
-| n             | n             |
+| 4             | n             |
 
 ## Sprint 1 Backlog
 
 | ID  | Title/Desc | Asignee | Status |
 | --- | ---------- | ------- | ------ |
-| 1.1 | Preparing the x | Jane Doe | DONE |
-| 1.2 | Make the x | John Doe | FAILED |
+| 1.1 | Skema Database | A | TODO |
+| 1.2 | Buat Database | R | TODO |
+| 1.3 | Inisialisasi Main JFrame | N | TODO |
+| 1.4 | Koneksi Java ke Database | N | TODO |
 
 ## Retrospective 
 
-Sprint kemarin dianggap terlalu sedikit sehingga diperlukan adanya penyesuaian tugas. Lorem ipsum dolor sit amet
+Sprint minggu ini beneran sprint, Insyaallah minggu depan berjalan lancar seperti jalan pagi.
 
 ## Next Sprint Backlog (Sprint 2)
 | ID  | Title/Desc | Asignee | 
 | --- | ---------- | ------- | 
-| 2.1 | Preparing the x | Jane Doe | 
-| 2.2 | Make the x | John Doe | 
+| 2.1 | Buat Login Register | A | 
+| 2.2 | Buat Splash Screen | N | 
+| 2.3 | Buat Dashboard | RA | 
+| 2.4 | Buat Pelanggan Page | A 

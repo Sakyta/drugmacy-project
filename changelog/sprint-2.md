@@ -1,31 +1,34 @@
 # Scrum Report (Sprint 2)
-| From dd/mm/yyyy to dd/mm/yyyy
+| From 27/11/2023 to 29/11/2023
 
-## Team (Insert your name)
-| NPM           | Name        |
-| ------------- |-------------|
-| 140810xx00xx  | John Doe    |
-| 140810xx00xx  | Jane Doe    |
-| 140810xx00xx  | Lorem Ipsum |
+## Team RAN
+| NPM           | Name        | Kode |
+| ------------- |-------------|------|
+| 140810220020  | Nurkahfi Amran Rahmada    | N |
+| 140810220076  | Tabina Adelia Rafa    | R |
+| 140810220078  | Anel Fuad Abiyyu | A |
 
 ## Sprint Overview
 | Planned (n)   | Completed (n) |
 | ------------- |-------------- |
-| n             | n             |
+| 4             | n             |
 
 ## Sprint 2 Backlog
 
 | ID  | Title/Desc | Asignee | Status |
 | --- | ---------- | ------- | ------ |
-| 2.1 | Preparing the x | Jane Doe | DONE |
-| 2.2 | Make the x | John Doe | FAILED |
+| 2.1 | Buat Login Register | A | TODO
+| 2.2 | Buat Splash Screen | N | TODO
+| 2.3 | Buat Dashboard | RA | TODO
+| 2.4 | Buat Pelanggan Page | N | TODO
 
 ## Retrospective 
 
-Sprint kemarin dianggap terlalu sedikit sehingga diperlukan adanya penyesuaian tugas. Lorem ipsum dolor sit amet
+Perkara revisi kelompok dan revisi tema, sprint minggu ini kita berlari lagi seperti dikejar polisi subway surf
 
 ## Next Sprint Backlog (Sprint 3)
 | ID  | Title/Desc | Asignee | 
 | --- | ---------- | ------- | 
-| 3.1 | Preparing the x | Jane Doe | 
-| 3.2 | Make the x | John Doe | 
+| 3.1 | Buat Obat Page | A | 
+| 3.2 | Buat Transaksi Page | N | 
+| 3.3 | Styling Aplikasi | RAN |
