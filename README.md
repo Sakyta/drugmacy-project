@@ -4,7 +4,7 @@ This repository is a final project (Java GUI) from Object-Oriented Programming C
 
 [Challenge Guidelines](challenge-guideline.md)
 
-**Please create a description for this project here**
+Drugmacy adalah aplikasi apotek yang memudahkan pengguna dalam membeli obat. Fitur dalam Drugmacy mencakup ketersediaan obat yang beragam, pembayaran aman, dan pengiriman cepat. Dengan User Interface yang ramah, Drugmacy menyediakan pengalaman belanja obat yang efisien dan nyaman.
 
 ## Credits
 | NPM           | Name        |
@@ -44,9 +44,7 @@ UML image here
 
 ## Table Used
 
-TO;DO
-
-ERD Table here
+![ERD](img/Table.png)
 
 ## Notable Assumption and Design App Details
 
