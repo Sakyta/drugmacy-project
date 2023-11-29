@@ -11,16 +11,16 @@
 ## Sprint Overview
 | Planned (n)   | Completed (n) |
 | ------------- |-------------- |
-| 4             | n             |
+| 4             | 4             |
 
 ## Sprint 1 Backlog
 
 | ID  | Title/Desc | Asignee | Status |
 | --- | ---------- | ------- | ------ |
-| 1.1 | Skema Database | A | TODO |
-| 1.2 | Buat Database | R | TODO |
-| 1.3 | Inisialisasi Main JFrame | N | TODO |
-| 1.4 | Koneksi Java ke Database | N | TODO |
+| 1.1 | Skema Database | A | DONE |
+| 1.2 | Buat Database | R | DONE |
+| 1.3 | Inisialisasi Main JFrame | N | DONE |
+| 1.4 | Koneksi Java ke Database | N | DONE |
 
 ## Retrospective 
 

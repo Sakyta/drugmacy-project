@@ -11,14 +11,14 @@
 ## Sprint Overview
 | Planned (n)   | Completed (n) |
 | ------------- |-------------- |
-| 4             | n             |
+| 4             | 2             |
 
 ## Sprint 2 Backlog
 
 | ID  | Title/Desc | Asignee | Status |
 | --- | ---------- | ------- | ------ |
-| 2.1 | Buat Login Register | A | TODO
-| 2.2 | Buat Splash Screen | N | TODO
+| 2.1 | Buat Login Register | A | DONE
+| 2.2 | Buat Splash Screen | N | DONE
 | 2.3 | Buat Dashboard | RA | TODO
 | 2.4 | Buat Pelanggan Page | N | TODO
 
