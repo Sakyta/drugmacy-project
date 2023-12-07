@@ -8,17 +8,26 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.*;
 import drugmacy.Package.*;
 import javax.swing.JOptionPane;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author nurka
  */
 public class AdminPage extends javax.swing.JFrame {
 
+    private Pegawai pegawai;
+    private Obat obat;
     /**
      * Creates new form AdminPage
      */
     public AdminPage() {
+        pegawai = new Pegawai();
+        obat = new Obat();
         initComponents();
+        tampilkan();
     }
     
     class JPanelGradient extends javax.swing.JPanel
@@ -55,6 +64,8 @@ public class AdminPage extends javax.swing.JFrame {
         panePage = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -78,27 +89,27 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        dataPegawaiTable = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField_id2 = new javax.swing.JTextField();
+        editIdPegawaiField = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField_alamat1 = new javax.swing.JTextField();
-        jTextField_nama1 = new javax.swing.JTextField();
+        editAlamatPegawaiField = new javax.swing.JTextField();
+        editNamaPegawaiField = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField_contact1 = new javax.swing.JTextField();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        editContactPegawaiField = new javax.swing.JTextField();
+        cancelPegawaiButton = new javax.swing.JButton();
+        deletePegawaiButton = new javax.swing.JButton();
+        updatePegawaiButton = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        jTextField_password1 = new javax.swing.JTextField();
-        jTextField_username1 = new javax.swing.JTextField();
+        editPasswordPegawaiField = new javax.swing.JTextField();
+        editUsernamePegawaiField = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jButton14 = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jButton15 = new javax.swing.JButton();
+        searchPegawaiField = new javax.swing.JTextField();
+        refreshButton = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
@@ -116,22 +127,22 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        dataObatTable = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField_id5 = new javax.swing.JTextField();
+        editIdObatField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField_namaobat1 = new javax.swing.JTextField();
-        jTextField_harga1 = new javax.swing.JTextField();
+        editNamaObatField = new javax.swing.JTextField();
+        editHargaObatField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField_stok1 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        editStokObatField = new javax.swing.JTextField();
+        cancelObatButton = new javax.swing.JButton();
+        deleteObatButton = new javax.swing.JButton();
+        updateObatButton = new javax.swing.JButton();
+        searchObatButton = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        searchObatField = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -223,25 +234,23 @@ public class AdminPage extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 800));
 
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
         jLabel1.setText("Welcome");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(239, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(225, 225, 225))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(jLabel1)
-                .addContainerGap(663, Short.MAX_VALUE))
-        );
+        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/AW.png"))); // NOI18N
+        jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
+
+        jButton1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jButton1.setText("Log Out");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 539, 190, 77));
 
         panePage.addTab("tab1", jPanel2);
 
@@ -384,18 +393,47 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel12.setText("Data Pegawai");
         jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        dataPegawaiTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Nama", "Alamat", "Kontak", "Username", "Password"
             }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        dataPegawaiTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dataPegawaiTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(dataPegawaiTable);
 
         jPanel7.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 428, 674, 360));
 
@@ -405,13 +443,19 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel13.setText("Id Pegawai (Contoh : 100)");
         jPanel9.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 8, -1, -1));
-        jPanel9.add(jTextField_id2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 37, 285, 30));
+
+        editIdPegawaiField.setEnabled(false);
+        jPanel9.add(editIdPegawaiField, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 37, 285, 30));
 
         jLabel14.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel14.setText("Alamat");
         jPanel9.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 85, -1, -1));
-        jPanel9.add(jTextField_alamat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 114, 285, 30));
-        jPanel9.add(jTextField_nama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 37, 285, 30));
+
+        editAlamatPegawaiField.setEnabled(false);
+        jPanel9.add(editAlamatPegawaiField, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 114, 285, 30));
+
+        editNamaPegawaiField.setEnabled(false);
+        jPanel9.add(editNamaPegawaiField, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 37, 285, 30));
 
         jLabel15.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel15.setText("Nama");
@@ -420,37 +464,46 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel16.setText("Contact");
         jPanel9.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 85, 71, -1));
-        jPanel9.add(jTextField_contact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 114, 285, 30));
 
-        jButton11.setText("Clear");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        editContactPegawaiField.setEnabled(false);
+        jPanel9.add(editContactPegawaiField, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 114, 285, 30));
+
+        cancelPegawaiButton.setText("Cancel");
+        cancelPegawaiButton.setEnabled(false);
+        cancelPegawaiButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                cancelPegawaiButtonActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 91, 30));
+        jPanel9.add(cancelPegawaiButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 91, 30));
 
-        jButton12.setText("Delete");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        deletePegawaiButton.setText("Delete");
+        deletePegawaiButton.setEnabled(false);
+        deletePegawaiButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                deletePegawaiButtonActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 91, 30));
+        jPanel9.add(deletePegawaiButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 91, 30));
 
-        jButton13.setText("Update");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        updatePegawaiButton.setText("Update");
+        updatePegawaiButton.setEnabled(false);
+        updatePegawaiButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                updatePegawaiButtonActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 91, 30));
+        jPanel9.add(updatePegawaiButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 91, 30));
 
         jLabel18.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel18.setText("Password");
         jPanel9.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 100, -1));
-        jPanel9.add(jTextField_password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 285, 30));
-        jPanel9.add(jTextField_username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 285, 30));
+
+        editPasswordPegawaiField.setEnabled(false);
+        jPanel9.add(editPasswordPegawaiField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 285, 30));
+
+        editUsernamePegawaiField.setEnabled(false);
+        jPanel9.add(editUsernamePegawaiField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 285, 30));
 
         jLabel19.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel19.setText("Username");
@@ -458,16 +511,26 @@ public class AdminPage extends javax.swing.JFrame {
 
         jPanel7.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 84, 670, 270));
 
-        jButton14.setText("Search");
-        jPanel7.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 390, 91, 30));
+        searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
+        jPanel7.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 390, 91, 30));
 
         jLabel17.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel17.setText("Id Pegawai");
         jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 110, 30));
-        jPanel7.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 170, 30));
+        jPanel7.add(searchPegawaiField, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 170, 30));
 
-        jButton15.setText("Refresh");
-        jPanel7.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 91, 30));
+        refreshButton.setText("Refresh");
+        refreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshButtonActionPerformed(evt);
+            }
+        });
+        jPanel7.add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 91, 30));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -550,18 +613,47 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel5.setText("Data Obat");
         jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        dataObatTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Nama", "Harga", "Stok"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        dataObatTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dataObatTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(dataObatTable);
 
         jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 348, 674, 440));
 
@@ -570,8 +662,14 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel7.setText("Id Obat (Contoh : AAA)");
 
+        editIdObatField.setEnabled(false);
+
         jLabel8.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel8.setText("Nama Obat");
+
+        editNamaObatField.setEnabled(false);
+
+        editHargaObatField.setEnabled(false);
 
         jLabel9.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel9.setText("Harga");
@@ -579,24 +677,29 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel10.setText("Stok");
 
-        jButton6.setText("Clear");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        editStokObatField.setEnabled(false);
+
+        cancelObatButton.setText("Cancel");
+        cancelObatButton.setEnabled(false);
+        cancelObatButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                cancelObatButtonActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Delete");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        deleteObatButton.setText("Delete");
+        deleteObatButton.setEnabled(false);
+        deleteObatButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                deleteObatButtonActionPerformed(evt);
             }
         });
 
-        jButton8.setText("Update");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        updateObatButton.setText("Update");
+        updateObatButton.setEnabled(false);
+        updateObatButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                updateObatButtonActionPerformed(evt);
             }
         });
 
@@ -608,23 +711,23 @@ public class AdminPage extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField_id5, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editIdObatField, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField_namaobat1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editNamaObatField, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField_harga1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editHargaObatField, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_stok1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editStokObatField, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(165, 165, 165)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(updateObatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cancelObatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(deleteObatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -635,41 +738,50 @@ public class AdminPage extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_id5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(editIdObatField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_harga1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(editHargaObatField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_namaobat1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(editNamaObatField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_stok1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(editStokObatField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)))
+                    .addComponent(cancelObatButton, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(updateObatButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deleteObatButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jPanel6.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 84, -1, 200));
 
-        jButton9.setText("Search");
-        jPanel6.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 91, 30));
+        searchObatButton.setText("Search");
+        searchObatButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchObatButtonActionPerformed(evt);
+            }
+        });
+        jPanel6.add(searchObatButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 91, 30));
 
         jLabel11.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel11.setText("Id Obat");
         jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 310, 80, 30));
-        jPanel6.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 170, 30));
+        jPanel6.add(searchObatField, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 170, 30));
 
         jButton10.setText("Refresh");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 91, 30));
 
         panePage.addTab("tab5", jPanel6);
@@ -746,6 +858,7 @@ public class AdminPage extends javax.swing.JFrame {
         jTextField_contact.setText(null);
         jTextField_username.setText(null);
         jTextField_password.setText(null);
+        tampilkan();
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -758,67 +871,102 @@ public class AdminPage extends javax.swing.JFrame {
         jTextField_password.setText(null);     
     }//GEN-LAST:event_jButton17ActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void updatePegawaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePegawaiButtonActionPerformed
         // TODO add your handling code here:
-        jTextField_id2.setEnabled(false);
-        jTextField_nama1.setEnabled(false);
-        jTextField_alamat1.setEnabled(false);
-        jTextField_contact1.setEnabled(false);
-        jTextField_username1.setEnabled(false);
-        jTextField_password1.setEnabled(false);
+        editIdPegawaiField.setEnabled(false);
+        editNamaPegawaiField.setEnabled(false);
+        editAlamatPegawaiField.setEnabled(false);
+        editContactPegawaiField.setEnabled(false);
+        editUsernamePegawaiField.setEnabled(false);
+        editPasswordPegawaiField.setEnabled(false);
 
         Pegawai peg = new Pegawai();
-        peg.setId(jTextField_id2.getText());
-        peg.setNama(jTextField_nama1.getText());
-        peg.setAlamat(jTextField_alamat1.getText());
-        peg.setContact(jTextField_contact1.getText());
-        peg.setUsername(jTextField_username1.getText());
-        peg.setPassword(jTextField_password1.getText());
+        peg.setId(editIdPegawaiField.getText());
+        peg.setNama(editNamaPegawaiField.getText());
+        peg.setAlamat(editAlamatPegawaiField.getText());
+        peg.setContact(editContactPegawaiField.getText());
+        peg.setUsername(editUsernamePegawaiField.getText());
+        peg.setPassword(editPasswordPegawaiField.getText());
         peg.setKode("2");
         peg.updatePegawai();
         
         javax.swing.JOptionPane.showMessageDialog(null, "Update Success");
-    }//GEN-LAST:event_jButton13ActionPerformed
+        
+        editIdPegawaiField.setText("");
+        editNamaPegawaiField.setText("");
+        editAlamatPegawaiField.setText("");
+        editContactPegawaiField.setText("");
+        editUsernamePegawaiField.setText("");
+        editPasswordPegawaiField.setText("");
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        editNamaPegawaiField.setEnabled(false);
+        editAlamatPegawaiField.setEnabled(false);
+        editContactPegawaiField.setEnabled(false);
+        editUsernamePegawaiField.setEnabled(false);
+        editPasswordPegawaiField.setEnabled(false);
+        updatePegawaiButton.setEnabled(false);
+        cancelPegawaiButton.setEnabled(false);
+        deletePegawaiButton.setEnabled(false);
+        tampilkan();        
+    }//GEN-LAST:event_updatePegawaiButtonActionPerformed
+
+    private void deletePegawaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePegawaiButtonActionPerformed
         // TODO add your handling code here:
-        jTextField_id2.setEnabled(false);
-        jTextField_nama1.setEnabled(false);
-        jTextField_alamat1.setEnabled(false);
-        jTextField_contact1.setEnabled(false);
-        jTextField_username1.setEnabled(false);
-        jTextField_password1.setEnabled(false);
+        editIdPegawaiField.setEnabled(false);
+        editNamaPegawaiField.setEnabled(false);
+        editAlamatPegawaiField.setEnabled(false);
+        editContactPegawaiField.setEnabled(false);
+        editUsernamePegawaiField.setEnabled(false);
+        editPasswordPegawaiField.setEnabled(false);
 
         Pegawai peg = new Pegawai();
-        peg.setId(jTextField_id2.getText());
-        peg.setNama(jTextField_nama1.getText());
-        peg.setAlamat(jTextField_alamat1.getText());
-        peg.setContact(jTextField_contact1.getText());
-        peg.setUsername(jTextField_username1.getText());
-        peg.setPassword(jTextField_password1.getText());
+        peg.setId(editIdPegawaiField.getText());
+        peg.setNama(editNamaPegawaiField.getText());
+        peg.setAlamat(editAlamatPegawaiField.getText());
+        peg.setContact(editContactPegawaiField.getText());
+        peg.setUsername(editUsernamePegawaiField.getText());
+        peg.setPassword(editPasswordPegawaiField.getText());
         peg.setKode("2");
         peg.deletePegawai();
 
         javax.swing.JOptionPane.showMessageDialog(null, "Delete Success");
 
-        jTextField_id2.setText(null);
-        jTextField_nama1.setText(null);
-        jTextField_alamat1.setText(null);
-        jTextField_contact1.setText(null);
-        jTextField_username1.setText(null);
-        jTextField_password1.setText(null);
+        editIdPegawaiField.setText("");
+        editNamaPegawaiField.setText("");
+        editAlamatPegawaiField.setText("");
+        editContactPegawaiField.setText("");
+        editUsernamePegawaiField.setText("");
+        editPasswordPegawaiField.setText("");
 
-    }//GEN-LAST:event_jButton12ActionPerformed
+        editNamaPegawaiField.setEnabled(false);
+        editAlamatPegawaiField.setEnabled(false);
+        editContactPegawaiField.setEnabled(false);
+        editUsernamePegawaiField.setEnabled(false);
+        editPasswordPegawaiField.setEnabled(false);
+        updatePegawaiButton.setEnabled(false);
+        cancelPegawaiButton.setEnabled(false);
+        deletePegawaiButton.setEnabled(false);
+        tampilkan();
+    }//GEN-LAST:event_deletePegawaiButtonActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void cancelPegawaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelPegawaiButtonActionPerformed
         // TODO add your handling code here:
-                jTextField_id2.setText(null);
-        jTextField_nama1.setText(null);
-        jTextField_alamat1.setText(null);
-        jTextField_contact1.setText(null);
-        jTextField_username1.setText(null);
-        jTextField_password1.setText(null);
-    }//GEN-LAST:event_jButton11ActionPerformed
+        editIdPegawaiField.setText("");
+        editNamaPegawaiField.setText("");
+        editAlamatPegawaiField.setText("");
+        editContactPegawaiField.setText("");
+        editUsernamePegawaiField.setText("");
+        editPasswordPegawaiField.setText("");
+
+        editNamaPegawaiField.setEnabled(false);
+        editAlamatPegawaiField.setEnabled(false);
+        editContactPegawaiField.setEnabled(false);
+        editUsernamePegawaiField.setEnabled(false);
+        editPasswordPegawaiField.setEnabled(false);
+        updatePegawaiButton.setEnabled(false);
+        cancelPegawaiButton.setEnabled(false);
+        deletePegawaiButton.setEnabled(false);
+    }//GEN-LAST:event_cancelPegawaiButtonActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // TODO add your handling code here:
@@ -830,57 +978,277 @@ public class AdminPage extends javax.swing.JFrame {
         ob.insertObat();
 
         JOptionPane.showMessageDialog(null, "Insert Success");
+        jTextField_id3.setText(null);
+        jTextField_namaobat.setText(null);
+        jTextField_harga.setText(null);
+        jTextField_stok.setText(null);
+        tampilkan();
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
         jTextField_id3.setText(null);
-        jTextField_nama.setText(null);
+        jTextField_namaobat.setText(null);
         jTextField_harga.setText(null);
         jTextField_stok.setText(null);
     }//GEN-LAST:event_jButton19ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void updateObatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateObatButtonActionPerformed
         // TODO add your handling code here:
         Obat ob = new Obat();
-        ob.setId(jTextField_id5.getText());
-        ob.setNama(jTextField_namaobat1.getText());
-        ob.setHarga(jTextField_harga1.getText());
-        ob.setStok(jTextField_stok1.getText());
+        ob.setId(editIdObatField.getText());
+        ob.setNama(editNamaObatField.getText());
+        ob.setHarga(editHargaObatField.getText());
+        ob.setStok(editStokObatField.getText());
         ob.updateObat();
         JOptionPane.showMessageDialog(null, "Update Success");
-    }//GEN-LAST:event_jButton8ActionPerformed
+        
+        editIdObatField.setText("");
+        editNamaObatField.setText("");
+        editHargaObatField.setText("");
+        editStokObatField.setText("");                
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        editNamaObatField.setEnabled(false);
+        editHargaObatField.setEnabled(false);
+        editStokObatField.setEnabled(false);                
+        updateObatButton.setEnabled(false);
+        cancelObatButton.setEnabled(false);
+        deleteObatButton.setEnabled(false);
+        tampilkan();
+    }//GEN-LAST:event_updateObatButtonActionPerformed
+
+    private void deleteObatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteObatButtonActionPerformed
         // TODO add your handling code here:
-        jTextField_id5.setEnabled(false);
-        jTextField_namaobat1.setEnabled(false);
-        jTextField_harga1.setEnabled(false);
-        jTextField_stok1.setEnabled(false);
+        editIdObatField.setEnabled(false);
+        editNamaObatField.setEnabled(false);
+        editHargaObatField.setEnabled(false);
+        editStokObatField.setEnabled(false);
 
         Obat ob = new Obat();
-        ob.setId(jTextField_id5.getText());
-        ob.setNama(jTextField_namaobat1.getText());
-        ob.setHarga(jTextField_harga1.getText());
-        ob.setStok(jTextField_stok1.getText());
+        ob.setId(editIdObatField.getText());
+        ob.setNama(editNamaObatField.getText());
+        ob.setHarga(editHargaObatField.getText());
+        ob.setStok(editStokObatField.getText());
         ob.deleteObat();
 
         JOptionPane.showMessageDialog(null, "Delete Success");
 
-        jTextField_id5.setText(null);
-        jTextField_namaobat1.setText(null);
-        jTextField_harga1.setText(null);
-        jTextField_stok1.setText(null);
-    }//GEN-LAST:event_jButton7ActionPerformed
+        editIdObatField.setText("");
+        editNamaObatField.setText("");
+        editHargaObatField.setText("");
+        editStokObatField.setText("");                
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        editNamaObatField.setEnabled(false);
+        editHargaObatField.setEnabled(false);
+        editStokObatField.setEnabled(false);                
+        updateObatButton.setEnabled(false);
+        cancelObatButton.setEnabled(false);
+        deleteObatButton.setEnabled(false);
+        tampilkan();
+    }//GEN-LAST:event_deleteObatButtonActionPerformed
+
+    private void cancelObatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelObatButtonActionPerformed
         // TODO add your handling code here:
-        jTextField_id5.setText(null);
-        jTextField_namaobat1.setText(null);
-        jTextField_harga1.setText(null);
-        jTextField_stok1.setText(null);
-    }//GEN-LAST:event_jButton6ActionPerformed
+        editIdObatField.setText("");
+        editNamaObatField.setText("");
+        editHargaObatField.setText("");
+        editStokObatField.setText("");                
 
+        editNamaObatField.setEnabled(false);
+        editHargaObatField.setEnabled(false);
+        editStokObatField.setEnabled(false);                
+        updateObatButton.setEnabled(false);
+        cancelObatButton.setEnabled(false);
+        deleteObatButton.setEnabled(false);
+    }//GEN-LAST:event_cancelObatButtonActionPerformed
+
+    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
+        // TODO add your handling code here:
+        tampilkan();
+    }//GEN-LAST:event_refreshButtonActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+        for (int i = 0; i < dataPegawaiTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < dataPegawaiTable.getColumnCount(); j++)
+            {
+                dataPegawaiTable.setValueAt("", i, j);
+            }
+        }
+        
+        String id = searchPegawaiField.getText();
+        
+        ResultSet hasil = pegawai.searchPegawai(id);
+        
+        try {
+            while (hasil.next())
+            {
+                dataPegawaiTable.setValueAt(hasil.getString(1), 0, 0);
+                dataPegawaiTable.setValueAt(hasil.getString(2), 0, 1);
+                dataPegawaiTable.setValueAt(hasil.getString(3), 0, 2);
+                dataPegawaiTable.setValueAt(hasil.getString(4), 0, 3);
+                dataPegawaiTable.setValueAt(hasil.getString(5), 0, 4);
+                dataPegawaiTable.setValueAt(hasil.getString(6), 0, 5);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void dataPegawaiTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataPegawaiTableMouseClicked
+        // TODO add your handling code here:
+        try 
+        {
+            if (evt.getClickCount() == 2)
+            {
+                int row = dataPegawaiTable.getSelectedRow();
+
+                editIdPegawaiField.setText(dataPegawaiTable.getValueAt(row, 0).toString());
+                editNamaPegawaiField.setText(dataPegawaiTable.getValueAt(row, 1).toString());
+                editAlamatPegawaiField.setText(dataPegawaiTable.getValueAt(row, 2).toString());
+                editContactPegawaiField.setText(dataPegawaiTable.getValueAt(row, 3).toString());
+                editUsernamePegawaiField.setText(dataPegawaiTable.getValueAt(row, 4).toString());
+                editPasswordPegawaiField.setText(dataPegawaiTable.getValueAt(row, 5).toString());
+
+                editNamaPegawaiField.setEnabled(true);
+                editAlamatPegawaiField.setEnabled(true);
+                editContactPegawaiField.setEnabled(true);
+                editUsernamePegawaiField.setEnabled(true);
+                editPasswordPegawaiField.setEnabled(true);
+                updatePegawaiButton.setEnabled(true);
+                cancelPegawaiButton.setEnabled(true);
+                deletePegawaiButton.setEnabled(true);
+            }
+        } 
+        catch (Throwable t)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Field yang dipilih kosong!", "Error", 2);
+        }
+    }//GEN-LAST:event_dataPegawaiTableMouseClicked
+
+    private void dataObatTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataObatTableMouseClicked
+        // TODO add your handling code here:
+        try 
+        {
+            if (evt.getClickCount() == 2)
+            {
+                int row = dataObatTable.getSelectedRow();
+
+                editIdObatField.setText(dataObatTable.getValueAt(row, 0).toString());
+                editNamaObatField.setText(dataObatTable.getValueAt(row, 1).toString());
+                editHargaObatField.setText(dataObatTable.getValueAt(row, 2).toString());
+                editStokObatField.setText(dataObatTable.getValueAt(row, 3).toString());                
+
+                editNamaObatField.setEnabled(true);
+                editHargaObatField.setEnabled(true);
+                editStokObatField.setEnabled(true);                
+                updateObatButton.setEnabled(true);
+                cancelObatButton.setEnabled(true);
+                deleteObatButton.setEnabled(true);
+            }
+        } 
+        catch (Throwable t)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Field yang dipilih kosong!", "Error", 2);
+        }
+    }//GEN-LAST:event_dataObatTableMouseClicked
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        tampilkan();
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void searchObatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchObatButtonActionPerformed
+        // TODO add your handling code here:
+        for (int i = 0; i < dataObatTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < dataObatTable.getColumnCount(); j++)
+            {
+                dataObatTable.setValueAt("", i, j);
+            }
+        }
+        
+        String id = searchObatField.getText();
+        
+        ResultSet hasilObat = obat.searchObat(id);
+        
+        try {
+            while (hasilObat.next())
+            {
+                dataObatTable.setValueAt(hasilObat.getString(1), 0, 0);
+                dataObatTable.setValueAt(hasilObat.getString(2), 0, 1);
+                dataObatTable.setValueAt(hasilObat.getString(3), 0, 2);
+                dataObatTable.setValueAt(hasilObat.getString(4), 0, 3);  
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchObatButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        LoginForm lp = new LoginForm();
+        lp.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tampilkan()
+    {
+        for (int i = 0; i < dataPegawaiTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < dataPegawaiTable.getColumnCount(); j++)
+            {
+                dataPegawaiTable.setValueAt("", i, j);
+            }
+        }
+        
+        ResultSet hasil = pegawai.getPegawai();
+        int row = 0;
+        
+        try {
+            while (hasil.next())
+            {
+                dataPegawaiTable.setValueAt(hasil.getString(1), row, 0);
+                dataPegawaiTable.setValueAt(hasil.getString(2), row, 1);
+                dataPegawaiTable.setValueAt(hasil.getString(3), row, 2);
+                dataPegawaiTable.setValueAt(hasil.getString(4), row, 3);
+                dataPegawaiTable.setValueAt(hasil.getString(5), row, 4);
+                dataPegawaiTable.setValueAt(hasil.getString(6), row, 5);
+                
+                row++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        for (int i = 0; i < dataObatTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < dataObatTable.getColumnCount(); j++)
+            {
+                dataObatTable.setValueAt("", i, j);
+            }
+        }
+        
+        ResultSet hasilObat = obat.getObat();
+        int rowObat = 0;
+        
+        try {
+            while (hasilObat.next())
+            {
+                dataObatTable.setValueAt(hasilObat.getString(1), rowObat, 0);
+                dataObatTable.setValueAt(hasilObat.getString(2), rowObat, 1);
+                dataObatTable.setValueAt(hasilObat.getString(3), rowObat, 2);
+                dataObatTable.setValueAt(hasilObat.getString(4), rowObat, 3);                
+                
+                rowObat++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+            
+    
     /**
      * @param args the command line arguments
      */
@@ -906,20 +1274,28 @@ public class AdminPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelObatButton;
+    private javax.swing.JButton cancelPegawaiButton;
+    private javax.swing.JTable dataObatTable;
+    private javax.swing.JTable dataPegawaiTable;
+    private javax.swing.JButton deleteObatButton;
+    private javax.swing.JButton deletePegawaiButton;
+    private javax.swing.JTextField editAlamatPegawaiField;
+    private javax.swing.JTextField editContactPegawaiField;
+    private javax.swing.JTextField editHargaObatField;
+    private javax.swing.JTextField editIdObatField;
+    private javax.swing.JTextField editIdPegawaiField;
+    private javax.swing.JTextField editNamaObatField;
+    private javax.swing.JTextField editNamaPegawaiField;
+    private javax.swing.JTextField editPasswordPegawaiField;
+    private javax.swing.JTextField editStokObatField;
+    private javax.swing.JTextField editUsernamePegawaiField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -948,6 +1324,7 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -968,30 +1345,23 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField_alamat;
-    private javax.swing.JTextField jTextField_alamat1;
     private javax.swing.JTextField jTextField_contact;
-    private javax.swing.JTextField jTextField_contact1;
     private javax.swing.JTextField jTextField_harga;
-    private javax.swing.JTextField jTextField_harga1;
     private javax.swing.JTextField jTextField_id;
-    private javax.swing.JTextField jTextField_id2;
     private javax.swing.JTextField jTextField_id3;
-    private javax.swing.JTextField jTextField_id5;
     private javax.swing.JTextField jTextField_nama;
-    private javax.swing.JTextField jTextField_nama1;
     private javax.swing.JTextField jTextField_namaobat;
-    private javax.swing.JTextField jTextField_namaobat1;
     private javax.swing.JTextField jTextField_password;
-    private javax.swing.JTextField jTextField_password1;
     private javax.swing.JTextField jTextField_stok;
-    private javax.swing.JTextField jTextField_stok1;
     private javax.swing.JTextField jTextField_username;
-    private javax.swing.JTextField jTextField_username1;
     private javax.swing.JTabbedPane panePage;
+    private javax.swing.JButton refreshButton;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JButton searchObatButton;
+    private javax.swing.JTextField searchObatField;
+    private javax.swing.JTextField searchPegawaiField;
+    private javax.swing.JButton updateObatButton;
+    private javax.swing.JButton updatePegawaiButton;
     // End of variables declaration//GEN-END:variables
 }

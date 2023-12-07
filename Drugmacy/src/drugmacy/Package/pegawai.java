@@ -79,28 +79,36 @@ public class Pegawai {
     }
 
     public void insertPegawai() {
-        Koneksi kon = new Koneksi();
-        String s = "insert into pegawai values ('" + this.id + "', '" + this.nama + "', '" + this.contact + "', '" + this.alamat + "', '" + this.username + "', '" + this.password + "', '" + this.kode + "')";
+        Connector kon = new Connector();
+        String s = "insert into pegawai values ('" + this.id + "', '" + this.nama + "', '" + this.alamat + "', '" + this.contact + "', '" + this.username + "', '" + this.password + "', '" + this.kode + "')";
         kon.query(s);
     }
 
     public void updatePegawai() {
-        Koneksi kon = new Koneksi();
-        String s = "update pegawai set id_pegawai = '" + this.id + "', nama = '" + this.nama + "', contact = '" + this.contact + "', alamat = '" + this.alamat + "', username = '" + this.username + "', password = '" + this.password + "', kode = '" + this.kode + "' where id_pegawai = '" + this.id + "'";
+        Connector kon = new Connector();
+        String s = "update pegawai set id_pegawai = '" + this.id + "', nama = '" + this.nama + "', kontak = '" + this.contact + "', alamat = '" + this.alamat + "', username = '" + this.username + "', password = '" + this.password + "', kode = '" + this.kode + "' where id_pegawai = '" + this.id + "'";
         kon.query(s);
     }
 
     public void deletePegawai() {
-        Koneksi kon = new Koneksi();
+        Connector kon = new Connector();
         String s = "delete from pegawai where id_pegawai = '" + this.id + "'";
         kon.query(s);
     }
 
     public ResultSet getPegawai() {
         ResultSet r = null;
-        Koneksi kon = new Koneksi();
-        String s = "insert into pegawai values ('" + this.id + "', '" + this.nama + "', '" + this.contact + "', '" + this.alamat + "', '" + this.username + "', '" + this.password + "', '0')";
-        kon.query(s);
+        Connector kon = new Connector();
+        String s = "SELECT * FROM pegawai";
+        r = kon.getData(s);
+        return r;
+    }
+    
+    public ResultSet searchPegawai(String id) {
+        ResultSet r = null;
+        Connector kon = new Connector();
+        String s = "SELECT * FROM pegawai WHERE id_pegawai = '" + id + "'";
+        r = kon.getData(s);
         return r;
     }
 }

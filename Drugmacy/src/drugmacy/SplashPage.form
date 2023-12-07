@@ -133,7 +133,7 @@
         <Component class="javax.swing.JProgressBar" name="progressBar">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="ff" type="rgb"/>
+              <Color blue="cc" green="ff" red="cc" type="rgb"/>
             </Property>
             <Property name="value" type="int" value="40"/>
           </Properties>

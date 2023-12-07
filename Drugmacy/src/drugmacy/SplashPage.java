@@ -72,7 +72,7 @@ public class SplashPage extends javax.swing.JFrame {
         valueLabel.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         valueLabel.setText("0%");
 
-        progressBar.setForeground(new java.awt.Color(255, 102, 102));
+        progressBar.setForeground(new java.awt.Color(204, 255, 204));
         progressBar.setValue(40);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

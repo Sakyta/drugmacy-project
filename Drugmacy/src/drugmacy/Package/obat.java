@@ -52,28 +52,36 @@ public class Obat {
     }
 
     public void insertObat() {
-        Koneksi kon = new Koneksi();
+        Connector kon = new Connector();
         String s = "insert into obat values ('" + this.id + "', '" + this.nama + "', '" + this.harga + "', '" + this.stok + "')";
         kon.query(s);
     }
 
     public void updateObat() {
-        Koneksi kon = new Koneksi();
+        Connector kon = new Connector();
         String s = "update obat set id_obat = '" + this.id + "', nama = '" + this.nama + "', harga = '" + this.harga + "', stok = '" + this.stok + "' where id_obat = '" + this.id + "'";
         kon.query(s);
     }
 
     public void deleteObat() {
-        Koneksi kon = new Koneksi();
+        Connector kon = new Connector();
         String s = "delete from obat where id_obat = '" + this.id + "'";
         kon.query(s);
     }
 
     public ResultSet getObat() {
         ResultSet r = null;
-        Koneksi kon = new Koneksi();
-        String s = "insert into obat values ('" + this.id + "', '" + this.nama + "', '" + this.harga + "', '" + this.stok + "')";
-        kon.query(s);
+        Connector kon = new Connector();
+        String s = "SELECT * FROM obat";
+        r = kon.getData(s);
+        return r;
+    }
+    
+    public ResultSet searchObat(String id) {
+        ResultSet r = null;
+        Connector kon = new Connector();
+        String s = "SELECT * FROM obat WHERE id_obat = '" + id + "'";
+        r = kon.getData(s);
         return r;
     }
 }

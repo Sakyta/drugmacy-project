@@ -15,78 +15,77 @@ public class Pelanggan {
     private String id;
     private String nama;
     private String alamat;
-    private String cp;
-    private String status;
+    private String kontak;
+    private Connector conn;
 
     public Pelanggan() {
-    }
-
+        this.id = "";
+        this.nama = "";
+        this.alamat = "";
+        this.kontak = "";
+        this.conn = new Connector();
+    }   
+    
     public String getId() {
         return id;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-
-    public String getAlamat() {
-        return alamat;
-    }
-
-    public String getCp() {
-        return cp;
-    }
-
-    public String getStatus() {
-        return status;
     }
 
     public void setId(String id) {
         this.id = id;
     }
 
+    public String getNama() {
+        return nama;
+    }
+
     public void setNama(String nama) {
         this.nama = nama;
+    }
+
+    public String getAlamat() {
+        return alamat;
     }
 
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
 
-    public void setCp(String cp) {
-        this.cp = cp;
+    public String getKontak() {
+        return kontak;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    public void setKontak(String kontak) {
+        this.kontak = kontak;
+    }       
 
-    public void insertPelanggan() {
-        Koneksi kon = new Koneksi();
-        String s = "insert into pelanggan values ('" + this.id + "', '" + this.nama + "', '" + this.cp + "', '"
+    public void insertPelanggan() {        
+        String s = "insert into pelanggan values ('" + this.id + "', '" + this.nama + "', '" + this.kontak + "', '"
                 + this.alamat + "')";
-        kon.query(s);
+        conn.query(s);
     }
 
-    public void updatePelanggan() {
-        Koneksi kon = new Koneksi();
-        String s = "update pelanggan set id_pelanggan = '" + this.id + "', nama = '" + this.nama + "', cp = '"
-                + this.cp + "', alamat = '" + this.alamat + "' where id_pelanggan = '" + this.id + "'";
-        kon.query(s);
+    public void updatePelanggan() {        
+        String s = "update pelanggan set nama = '" + this.nama + "', kontak = '"
+                + this.kontak + "', alamat = '" + this.alamat + "' where id_pelanggan = '" + this.id + "'";
+        conn.query(s);
     }
 
-    public void deletePelanggan() {
-        Koneksi kon = new Koneksi();
+    public void deletePelanggan() {        
         String s = "delete from pelanggan where id_pelanggan = '" + this.id + "'";
-        kon.query(s);
+        conn.query(s);
     }
 
     public ResultSet getPelanggan() {
-        ResultSet r = null;
-        Koneksi kon = new Koneksi();
-        String s = "insert into pelanggan values ('" + this.id + "', '" + this.nama + "', '" + this.cp + "', '"
-                + this.alamat + "')";
-        kon.query(s);
+        ResultSet r = null;        
+        String s = "SELECT * FROM pelanggan";
+        r = conn.getData(s);
+        return r;
+    }
+    
+    public ResultSet searchPelanggan(String id) {
+        ResultSet r = null;        
+        String s = "SELECT * FROM pelanggan WHERE id = '" + id + "'";
+        r = conn.getData(s);
         return r;
     }
 }

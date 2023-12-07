@@ -5,6 +5,24 @@
 package drugmacy;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.*;
+import javax.swing.JOptionPane;
+import java.sql.*;
+import drugmacy.Package.*;
+import java.awt.print.PrinterException;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+
+
 
 /**
  *
@@ -12,11 +30,27 @@ import java.awt.*;
  */
 public class UserPage extends javax.swing.JFrame {
 
+    private Pelanggan pelanggan;
+    private Pegawai pegawai;
+    private Obat obat;
+    private int count;
+    private Penjualan penjualan;
+    private int[] newStock;
+    private String[] flagId;
+    
     /**
      * Creates new form UserPage
      */
     public UserPage() {
+        pelanggan = new Pelanggan();
+        pegawai = new Pegawai();
+        obat = new Obat();
+        this.count = 0;
+        penjualan = new Penjualan();
+        newStock = new int[25];
+        flagId = new String[25];
         initComponents();
+        tampilkan();
     }
     
     class JPanelGradient extends javax.swing.JPanel
@@ -44,6 +78,7 @@ public class UserPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSpinField1 = new com.toedter.components.JSpinField();
         jPanel1 = new JPanelGradient();
         jLabel6 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -52,70 +87,75 @@ public class UserPage extends javax.swing.JFrame {
         panePage = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
+        idPelangganField = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
+        namaPelangganField = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        jTextField21 = new javax.swing.JTextField();
+        alamatPelangganField = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        jTextField22 = new javax.swing.JTextField();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
+        kontakPelangganField = new javax.swing.JTextField();
+        insertPelangganButton = new javax.swing.JButton();
+        clearPelangganButton = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        editIdPelangganField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        editNamaPelangganField = new javax.swing.JTextField();
+        editAlamatPelangganField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        editKontakPelangganField = new javax.swing.JTextField();
+        cancelPelangganButton = new javax.swing.JButton();
+        deletePelangganButton = new javax.swing.JButton();
+        updatePelangganButton = new javax.swing.JButton();
+        refreshButton = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
+        searchPelangganField = new javax.swing.JTextField();
+        searchPelangganButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        dataPelangganTable = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        dataObatTable = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jButton1 = new javax.swing.JButton();
+        pelangganComBox = new javax.swing.JComboBox<>();
+        pegawaiComBox = new javax.swing.JComboBox<>();
+        dateChooser = new com.toedter.calendar.JDateChooser();
+        addButton = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextField6 = new javax.swing.JTextField();
+        saveButton = new javax.swing.JButton();
+        namaObatField = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        totalField = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        jumlahSpinner = new javax.swing.JSpinner();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        billTable = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        hargaObatField = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        receiptText = new javax.swing.JScrollPane();
+        receipt = new javax.swing.JTextArea();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 0));
@@ -190,25 +230,23 @@ public class UserPage extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 800));
 
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel18.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
         jLabel18.setText("Welcome");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(239, Short.MAX_VALUE)
-                .addComponent(jLabel18)
-                .addGap(225, 225, 225))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(333, Short.MAX_VALUE)
-                .addComponent(jLabel18)
-                .addGap(412, 412, 412))
-        );
+        jButton1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jButton1.setText("Log Out");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 539, 190, 77));
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pelanggan1.png"))); // NOI18N
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
 
         panePage.addTab("tab1", jPanel2);
 
@@ -221,26 +259,36 @@ public class UserPage extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel26.setText("Id Pelanggan (Contoh : 100)");
         jPanel12.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 8, -1, -1));
-        jPanel12.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 37, 530, 30));
+        jPanel12.add(idPelangganField, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 37, 530, 30));
 
         jLabel27.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel27.setText("Nama");
         jPanel12.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 120, -1));
-        jPanel12.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 530, 30));
+        jPanel12.add(namaPelangganField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 530, 30));
 
         jLabel28.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel28.setText("Alamat");
         jPanel12.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
-        jPanel12.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 530, 30));
+        jPanel12.add(alamatPelangganField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 530, 30));
 
         jLabel29.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel29.setText("Kontak");
         jPanel12.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 71, -1));
-        jPanel12.add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 530, 30));
+        jPanel12.add(kontakPelangganField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 530, 30));
 
-        jButton18.setText("Insert");
+        insertPelangganButton.setText("Insert");
+        insertPelangganButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertPelangganButtonActionPerformed(evt);
+            }
+        });
 
-        jButton19.setText("Clear");
+        clearPelangganButton.setText("Clear");
+        clearPelangganButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearPelangganButtonActionPerformed(evt);
+            }
+        });
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pelanggan1.png"))); // NOI18N
         jLabel19.setText("jLabel19");
@@ -255,9 +303,9 @@ public class UserPage extends javax.swing.JFrame {
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(161, 161, 161)
-                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(insertPelangganButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(clearPelangganButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(59, 59, 59))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(126, 126, 126)
@@ -273,14 +321,14 @@ public class UserPage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insertPelangganButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clearPelangganButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(94, 94, 94))
         );
 
@@ -295,13 +343,19 @@ public class UserPage extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel7.setText("Id Pelanggan (Contoh : 100)");
         jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 8, -1, -1));
-        jPanel8.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 37, 285, 30));
+
+        editIdPelangganField.setEnabled(false);
+        jPanel8.add(editIdPelangganField, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 37, 285, 30));
 
         jLabel8.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel8.setText("Nama");
         jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 85, -1, -1));
-        jPanel8.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 114, 285, 30));
-        jPanel8.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 37, 285, 30));
+
+        editNamaPelangganField.setEnabled(false);
+        jPanel8.add(editNamaPelangganField, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 114, 285, 30));
+
+        editAlamatPelangganField.setEnabled(false);
+        jPanel8.add(editAlamatPelangganField, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 37, 285, 30));
 
         jLabel9.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel9.setText("Alamat");
@@ -310,36 +364,95 @@ public class UserPage extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel10.setText("Contact");
         jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 85, 71, -1));
-        jPanel8.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 114, 285, 30));
 
-        jButton6.setText("Clear");
-        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 156, 91, 30));
+        editKontakPelangganField.setEnabled(false);
+        jPanel8.add(editKontakPelangganField, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 114, 285, 30));
 
-        jButton7.setText("Delete");
-        jPanel8.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 156, 91, 30));
+        cancelPelangganButton.setText("Cancel");
+        cancelPelangganButton.setEnabled(false);
+        cancelPelangganButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelPelangganButtonActionPerformed(evt);
+            }
+        });
+        jPanel8.add(cancelPelangganButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 156, 91, 30));
 
-        jButton8.setText("Update");
-        jPanel8.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 156, 91, 30));
+        deletePelangganButton.setText("Delete");
+        deletePelangganButton.setEnabled(false);
+        deletePelangganButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletePelangganButtonActionPerformed(evt);
+            }
+        });
+        jPanel8.add(deletePelangganButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 156, 91, 30));
 
-        jButton10.setText("Refresh");
+        updatePelangganButton.setText("Update");
+        updatePelangganButton.setEnabled(false);
+        updatePelangganButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatePelangganButtonActionPerformed(evt);
+            }
+        });
+        jPanel8.add(updatePelangganButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 156, 91, 30));
+
+        refreshButton.setText("Refresh");
+        refreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshButtonActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel11.setText("Id Pelanggan");
 
-        jButton9.setText("Search");
+        searchPelangganButton.setText("Search");
+        searchPelangganButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchPelangganButtonActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        dataPelangganTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Nama", "Kontak", "Alamat"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        dataPelangganTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dataPelangganTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(dataPelangganTable);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -358,13 +471,13 @@ public class UserPage extends javax.swing.JFrame {
                             .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(180, 180, 180)
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(2, 2, 2)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(searchPelangganField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
-                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(searchPelangganButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel4Layout.setVerticalGroup(
@@ -372,38 +485,62 @@ public class UserPage extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel5)
-                .addContainerGap(731, Short.MAX_VALUE))
+                .addContainerGap(754, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(0, 90, Short.MAX_VALUE)
+                    .addGap(0, 101, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(searchPelangganField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchPelangganButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(8, 8, 8)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 25, Short.MAX_VALUE)))
+                    .addGap(0, 37, Short.MAX_VALUE)))
         );
 
         panePage.addTab("tab3", jPanel4);
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        dataObatTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Nama", "Harga", "Stok"
             }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        dataObatTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dataObatTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(dataObatTable);
 
         jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 250, 250));
 
@@ -416,53 +553,93 @@ public class UserPage extends javax.swing.JFrame {
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jLabel2.setText("Id Pegawai");
+        jLabel2.setText("Pegawai");
         jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jLabel4.setText("Id Pelanggan");
+        jLabel4.setText("Pelanggan");
         jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 220, 30));
+        jPanel5.add(pelangganComBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 220, 30));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 220, 30));
-        jPanel5.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 170, 30));
+        pegawaiComBox.setToolTipText("");
+        jPanel5.add(pegawaiComBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 220, 30));
 
-        jButton1.setText("Add to Bill");
-        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 130, 30));
+        dateChooser.setMaxSelectableDate(new java.util.Date(253370743268000L));
+        dateChooser.setMinSelectableDate(new java.util.Date(-62135791132000L));
+        jPanel5.add(dateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 170, 30));
+
+        addButton.setText("Add to Bill");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
+        jPanel5.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 130, 30));
 
         jLabel13.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel13.setText("Nama Obat");
         jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
 
-        jButton2.setText("Save");
-        jPanel5.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 760, 90, 30));
-        jPanel5.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 220, 30));
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+        jPanel5.add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 760, 90, 30));
+
+        namaObatField.setEnabled(false);
+        jPanel5.add(namaObatField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 220, 30));
 
         jLabel14.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel14.setText("Harga");
         jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
-        jPanel5.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 760, 220, 30));
+
+        totalField.setText("0");
+        jPanel5.add(totalField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 760, 220, 30));
 
         jLabel16.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel16.setText("Jumlah");
         jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, -1));
-        jPanel5.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 220, 30));
+        jPanel5.add(jumlahSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 220, 30));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        billTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nama Obat", "Harga", "Jumlah"
             }
-        ));
-        jScrollPane3.setViewportView(jTable3);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(billTable);
 
         jPanel5.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 670, 310));
 
@@ -473,36 +650,74 @@ public class UserPage extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel17.setText("Customer's Bill");
         jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, -1, -1));
-        jPanel5.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 220, 30));
+
+        hargaObatField.setEnabled(false);
+        jPanel5.add(hargaObatField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 220, 30));
 
         jButton3.setText("Reset");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 130, 30));
-
-        jButton4.setText("Print");
-        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 760, 90, 30));
 
         panePage.addTab("tab4", jPanel5);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane4.setViewportView(jTextArea1);
+        receipt.setColumns(20);
+        receipt.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        receipt.setRows(5);
+        receiptText.setViewportView(receipt);
+
+        jButton4.setText("PDF");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Print");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Back");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(receiptText, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(receiptText, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         panePage.addTab("tab5", jPanel6);
@@ -549,6 +764,444 @@ public class UserPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel1MouseClicked
 
+    private void clearPelangganButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearPelangganButtonActionPerformed
+        // TODO add your handling code here:
+        idPelangganField.setText("");
+        namaPelangganField.setText("");
+        alamatPelangganField.setText("");
+        kontakPelangganField.setText("");
+        
+        idPelangganField.requestFocus();
+    }//GEN-LAST:event_clearPelangganButtonActionPerformed
+
+    private void insertPelangganButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertPelangganButtonActionPerformed
+        // TODO add your handling code here:
+        pelanggan.setId(idPelangganField.getText());       
+        pelanggan.setNama(namaPelangganField.getText());
+        pelanggan.setAlamat(alamatPelangganField.getText());        
+        pelanggan.setKontak(kontakPelangganField.getText());        
+        
+        pelanggan.insertPelanggan();
+        JOptionPane.showMessageDialog(rootPane, "Insert Data Berhasil!", "Success", 1);
+        idPelangganField.setText("");
+        namaPelangganField.setText("");
+        alamatPelangganField.setText("");
+        kontakPelangganField.setText("");
+        tampilkan();
+    }//GEN-LAST:event_insertPelangganButtonActionPerformed
+
+    private void dataPelangganTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataPelangganTableMouseClicked
+        // TODO add your handling code here:
+        int row = dataPelangganTable.getSelectedRow();
+        try 
+        {
+            if (evt.getClickCount() == 2)
+            {
+                editIdPelangganField.setText(dataPelangganTable.getValueAt(row, 0).toString());
+                editNamaPelangganField.setText(dataPelangganTable.getValueAt(row, 1).toString());            
+                editAlamatPelangganField.setText(dataPelangganTable.getValueAt(row, 3).toString());
+                editKontakPelangganField.setText(dataPelangganTable.getValueAt(row, 2).toString());
+                
+                editNamaPelangganField.setEnabled(true);
+                editAlamatPelangganField.setEnabled(true);
+                editKontakPelangganField.setEnabled(true);
+                updatePelangganButton.setEnabled(true);
+                cancelPelangganButton.setEnabled(true);
+                deletePelangganButton.setEnabled(true);
+
+                editIdPelangganField.requestFocus();
+            }
+        } 
+        catch (Throwable t)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Field yang dipilih kosong!", "Error", 2);
+        }
+    }//GEN-LAST:event_dataPelangganTableMouseClicked
+
+    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
+        // TODO add your handling code here:
+        tampilkan();
+    }//GEN-LAST:event_refreshButtonActionPerformed
+
+    private void searchPelangganButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPelangganButtonActionPerformed
+        // TODO add your handling code here:
+        for (int i = 0; i < dataPelangganTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < dataPelangganTable.getColumnCount(); j++)
+            {
+                dataPelangganTable.setValueAt("", i, j);
+            }
+        }
+        
+        String id = searchPelangganField.getText();
+        
+        ResultSet hasil = pelanggan.searchPelanggan(id);
+        
+        try {
+            while (hasil.next())
+            {
+                dataPelangganTable.setValueAt(hasil.getString(1), 0, 0);
+                dataPelangganTable.setValueAt(hasil.getString(2), 0, 1);
+                dataPelangganTable.setValueAt(hasil.getString(3), 0, 2);
+                dataPelangganTable.setValueAt(hasil.getString(4), 0, 3);   
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_searchPelangganButtonActionPerformed
+
+    private void deletePelangganButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePelangganButtonActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        pelanggan.setId(editIdPelangganField.getText());       
+        pelanggan.setNama(editNamaPelangganField.getText());
+        pelanggan.setAlamat(editAlamatPelangganField.getText());        
+        pelanggan.setKontak(editKontakPelangganField.getText());
+        
+        int confirm = JOptionPane.showConfirmDialog(rootPane, "Apakah Kamu Yakin?", "Delete", 2);
+        
+        if (confirm == 0)
+        {
+            pelanggan.deletePelanggan();
+            JOptionPane.showMessageDialog(rootPane, "Delete Data Berhasil!", "Success", 1);
+            editIdPelangganField.setText("");
+            editNamaPelangganField.setText("");            
+            editAlamatPelangganField.setText("");
+            editKontakPelangganField.setText("");
+
+            editIdPelangganField.setEnabled(false);
+            editNamaPelangganField.setEnabled(false);
+            editAlamatPelangganField.setEnabled(false);
+            editKontakPelangganField.setEnabled(false);
+            updatePelangganButton.setEnabled(false);
+            cancelPelangganButton.setEnabled(false);
+            deletePelangganButton.setEnabled(false);
+            tampilkan();
+        }  
+    }//GEN-LAST:event_deletePelangganButtonActionPerformed
+
+    private void cancelPelangganButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelPelangganButtonActionPerformed
+        // TODO add your handling code here:
+        editIdPelangganField.setText("");
+        editNamaPelangganField.setText("");            
+        editAlamatPelangganField.setText("");
+        editKontakPelangganField.setText("");
+        
+        editNamaPelangganField.setEnabled(false);
+        editAlamatPelangganField.setEnabled(false);
+        editKontakPelangganField.setEnabled(false);
+        updatePelangganButton.setEnabled(false);
+        cancelPelangganButton.setEnabled(false);
+        deletePelangganButton.setEnabled(false);
+    }//GEN-LAST:event_cancelPelangganButtonActionPerformed
+
+    private void updatePelangganButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePelangganButtonActionPerformed
+        // TODO add your handling code here:
+        pelanggan.setId(editIdPelangganField.getText());       
+        pelanggan.setNama(editNamaPelangganField.getText());
+        pelanggan.setAlamat(editAlamatPelangganField.getText());        
+        pelanggan.setKontak(editKontakPelangganField.getText());    
+        
+        int confirm = JOptionPane.showConfirmDialog(rootPane, "Apakah Kamu Yakin?", "Delete", 2);
+        
+        if (confirm == 0)
+        {
+            pelanggan.updatePelanggan();
+            JOptionPane.showMessageDialog(rootPane, "Update Data Berhasil!", "Success", 1);
+            editIdPelangganField.setText("");
+            editNamaPelangganField.setText("");            
+            editAlamatPelangganField.setText("");
+            editKontakPelangganField.setText("");
+
+            editNamaPelangganField.setEnabled(false);
+            editAlamatPelangganField.setEnabled(false);
+            editKontakPelangganField.setEnabled(false);
+            updatePelangganButton.setEnabled(false);
+            cancelPelangganButton.setEnabled(false);
+            deletePelangganButton.setEnabled(false);
+            tampilkan();
+        }
+    }//GEN-LAST:event_updatePelangganButtonActionPerformed
+
+    private void dataObatTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataObatTableMouseClicked
+        // TODO add your handling code here:
+        try 
+        {
+            if (evt.getClickCount() == 2)
+            {
+                int row = dataObatTable.getSelectedRow();
+                
+                namaObatField.setText(dataObatTable.getValueAt(row, 1).toString());
+                hargaObatField.setText(dataObatTable.getValueAt(row, 2).toString());                
+            }
+        } 
+        catch (Throwable t)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Field yang dipilih kosong!", "Error", 2);
+        }
+    }//GEN-LAST:event_dataObatTableMouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here
+        pegawaiComBox.setSelectedIndex(0);
+        pelangganComBox.setSelectedIndex(0);
+        namaObatField.setText("");
+        hargaObatField.setText("");
+        jumlahSpinner.setValue(0);
+        tampilkan();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        // TODO add your handling code here:
+        DecimalFormat df = new DecimalFormat("#,##0.##");
+        String namaObat = namaObatField.getText();
+        String hargaObat = hargaObatField.getText();
+        String jumlahBeli = jumlahSpinner.getValue().toString();
+        if (Integer.parseInt(jumlahSpinner.getValue().toString()) <= 0)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Jumlah Beli Tidak Valid", "Error", 2);
+        } 
+        else 
+        {
+            int row = dataObatTable.getSelectedRow();
+            flagId[count] = dataObatTable.getValueAt(row, 0).toString();
+            newStock[count] = Integer.parseInt(dataObatTable.getValueAt(row, 3).toString()) - Integer.parseInt(jumlahBeli);
+            
+            try {
+                Number parsed = df.parse(totalField.getText());
+                double total = parsed.doubleValue();
+                total += Float.parseFloat(hargaObat) * Float.parseFloat(jumlahBeli);
+                totalField.setText(String.valueOf(df.format(total)));
+            } catch (ParseException ex) {
+                Logger.getLogger(UserPage.class.getName()).log(Level.SEVERE, null, ex);
+            }        
+
+            billTable.setValueAt(namaObat, count, 0);
+            billTable.setValueAt(hargaObat, count, 1);
+            billTable.setValueAt(jumlahBeli, count, 2);
+            count++;
+
+            namaObatField.setText("");
+            hargaObatField.setText("");
+            jumlahSpinner.setValue(0);
+        }                
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+        receipt.setText("");
+        int row = 0;        
+        String id = getRandomId();
+        java.util.Date date = dateChooser.getDate();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(date); 
+        
+        for (int i = 0; i < count; i++)
+        {
+            penjualan.setId_penjualan(id);
+            penjualan.setTgl_jual(formattedDate);
+            penjualan.setTotal(totalField.getText());
+            penjualan.setNama_pegawai(pegawaiComBox.getSelectedItem().toString());
+            penjualan.setNama_pelanggan(pelangganComBox.getSelectedItem().toString());
+            penjualan.setNama_obat(billTable.getValueAt(row, 0).toString());
+            penjualan.setJumlah_beli(Integer.parseInt(billTable.getValueAt(row, 2).toString()));
+            
+            penjualan.insertPenjualan();                        
+            
+            row++;
+        }                     
+        printReceipt(id, formattedDate);
+        
+        for (int i = 0; i < count; i++)
+        {
+            obat = new Obat();    
+            ResultSet hasil = obat.getObat();
+            try {
+                while (hasil.next())
+                {
+                    if (hasil.getString(1).equals(flagId[i]))
+                    {
+                        obat.setNama(hasil.getString(2));
+                        obat.setHarga(hasil.getString(3));
+                        break;
+                    }
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            obat.setId(flagId[i]);            
+            obat.setStok(String.valueOf(newStock[i]));
+            
+            obat.updateObat();
+        }
+        
+        for (int i = 0; i < billTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < billTable.getColumnCount(); j++)
+            {
+                billTable.setValueAt("", i, j);
+            }
+        }
+        
+        totalField.setText("0");
+        jumlahSpinner.setValue(0);
+        namaObatField.setText("");
+        hargaObatField.setText("");
+        pegawaiComBox.setSelectedIndex(0);
+        pelangganComBox.setSelectedIndex(0);
+        dateChooser.setDate(new java.util.Date());
+        this.count = 0;
+        flagId = new String[15];
+        newStock = new int[15];
+                
+        panePage.setSelectedIndex(4);
+        tampilkan();
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try {
+            // TODO add your handling code here:
+            receipt.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(UserPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        try {
+            String desktopPath = System.getProperty("user.home") + File.separator + "Desktop";
+            String file_name = desktopPath + File.separator + "bill.pdf";
+            Document document = new Document();
+
+            PdfWriter.getInstance(document, new FileOutputStream(file_name));
+
+            document.open();
+
+            // Add content to the PDF
+            document.add(new Paragraph(receipt.getText()));
+
+            document.close();           
+            
+            File pdfFile = new File(file_name);
+            Desktop.getDesktop().open(pdfFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        LoginForm lp = new LoginForm();
+        lp.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        panePage.setSelectedIndex(3);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void tampilkan()
+    {
+        for (int i = 0; i < dataPelangganTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < dataPelangganTable.getColumnCount(); j++)
+            {
+                dataPelangganTable.setValueAt("", i, j);
+            }
+        }
+        
+        try {
+            ResultSet hasil = pelanggan.getPelanggan();
+            
+            int row = 0;
+            while (hasil.next())
+            {
+                dataPelangganTable.setValueAt(hasil.getString(1), row, 0);
+                dataPelangganTable.setValueAt(hasil.getString(2), row, 1);
+                dataPelangganTable.setValueAt(hasil.getString(3), row, 2);
+                dataPelangganTable.setValueAt(hasil.getString(4), row, 3);                                
+                
+                row++;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+                        
+        ResultSet hasilPegawai = pegawai.getPegawai();
+        ResultSet hasilPelanggan = pelanggan.getPelanggan();
+        
+        try {
+            while (hasilPegawai.next() && hasilPelanggan.next())
+            {
+                pegawaiComBox.addItem(hasilPegawai.getString(2));
+                pelangganComBox.addItem(hasilPelanggan.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        ResultSet hasilObat = obat.getObat();
+        int rowObat = 0;
+        
+        try {
+            while (hasilObat.next())
+            {
+                dataObatTable.setValueAt(hasilObat.getString(1), rowObat, 0);
+                dataObatTable.setValueAt(hasilObat.getString(2), rowObat, 1);
+                dataObatTable.setValueAt(hasilObat.getString(3), rowObat, 2);
+                dataObatTable.setValueAt(hasilObat.getString(4), rowObat, 3);                
+                
+                rowObat++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        dateChooser.setDate(new java.util.Date());
+    }
+    
+    private void printReceipt(String id, String formattedDate)
+    {                               
+        receipt.append("                             RECEIPT OF SALE\n");
+        receipt.append("                                DRUGMACY\n");
+        receipt.append("                               Jatinangor\n");
+        receipt.append("-----------------------------------------------------------------------\n");
+        receipt.append(String.format("                             %-7s\n", id));        
+        receipt.append(String.format("                             %-10s\n", formattedDate));        
+        receipt.append(String.format("%-7s%-40s%-10s\n", "QTY", "ITEM", "PRICE"));
+        receipt.append("-----------------------------------------------------------------------\n");
+
+        int row = 0;        
+        for (int i = 0; i < count; i++)
+        {
+            String formattedItem = String.format("%-40s", billTable.getValueAt(row, 0));
+            receipt.append(String.format("%-7s%-40s Rp %-10s\n", billTable.getValueAt(row, 2), formattedItem, billTable.getValueAt(row, 1)));
+            row++;
+        }        
+
+        receipt.append("-----------------------------------------------------------------------\n");
+        receipt.append(String.format("%-58s Rp %-10s\n", "Total", totalField.getText()));
+        receipt.append("-----------------------------------------------------------------------\n");
+        receipt.append("                               Thank You !");                   
+    }
+    
+    public String getRandomId()
+    {
+        String huruf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String angka = "0123456789";
+        String randomId = "";
+        
+        for (int i = 0; i < 3; i++)
+        {
+            randomId += huruf.charAt((int) (Math.random() * huruf.length()));
+            randomId += angka.charAt((int) (Math.random() * angka.length()));
+        }
+                
+        return randomId;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -574,20 +1227,27 @@ public class UserPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addButton;
+    private javax.swing.JTextField alamatPelangganField;
+    private javax.swing.JTable billTable;
+    private javax.swing.JButton cancelPelangganButton;
+    private javax.swing.JButton clearPelangganButton;
+    private javax.swing.JTable dataObatTable;
+    private javax.swing.JTable dataPelangganTable;
+    private com.toedter.calendar.JDateChooser dateChooser;
+    private javax.swing.JButton deletePelangganButton;
+    private javax.swing.JTextField editAlamatPelangganField;
+    private javax.swing.JTextField editIdPelangganField;
+    private javax.swing.JTextField editKontakPelangganField;
+    private javax.swing.JTextField editNamaPelangganField;
+    private javax.swing.JTextField hargaObatField;
+    private javax.swing.JTextField idPelangganField;
+    private javax.swing.JButton insertPelangganButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -600,6 +1260,7 @@ public class UserPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -625,24 +1286,21 @@ public class UserPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private com.toedter.components.JSpinField jSpinField1;
+    private javax.swing.JSpinner jumlahSpinner;
+    private javax.swing.JTextField kontakPelangganField;
+    private javax.swing.JTextField namaObatField;
+    private javax.swing.JTextField namaPelangganField;
     private javax.swing.JTabbedPane panePage;
+    private javax.swing.JComboBox<String> pegawaiComBox;
+    private javax.swing.JComboBox<String> pelangganComBox;
+    private javax.swing.JTextArea receipt;
+    private javax.swing.JScrollPane receiptText;
+    private javax.swing.JButton refreshButton;
+    private javax.swing.JButton saveButton;
+    private javax.swing.JButton searchPelangganButton;
+    private javax.swing.JTextField searchPelangganField;
+    private javax.swing.JTextField totalField;
+    private javax.swing.JButton updatePelangganButton;
     // End of variables declaration//GEN-END:variables
 }

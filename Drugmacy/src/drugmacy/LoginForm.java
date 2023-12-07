@@ -6,7 +6,7 @@ package drugmacy;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.*;
 import java.sql.ResultSet;
-import drugmacy.Package.Koneksi;
+import drugmacy.Package.Connector;
 
 /**
  *
@@ -74,12 +74,16 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Username");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 105, -1));
+
+        jTextField_username.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jPanel1.add(jTextField_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 320, 30));
 
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Password");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
+
+        jPasswordField_password.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jPanel1.add(jPasswordField_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 320, 30));
 
         jButton_login.setText("Login");
@@ -114,7 +118,7 @@ public class LoginForm extends javax.swing.JFrame {
         } else if (jPasswordField_password.getText().equals("")) {
             javax.swing.JOptionPane.showMessageDialog(null, "Please Complete the Password Field");
         } else {
-            Koneksi kon = new Koneksi();
+            Connector kon = new Connector();
             ResultSet rs = null;
 
             try {
