@@ -25,16 +25,20 @@ Drugmacy adalah aplikasi apotek yang memudahkan pengguna dalam membeli obat. Fit
    - Inisialisasi JFrame
 
 - **[Sprint 2](changelog/sprint-2.md) - (date from 27 November until 29 November)** 
-   - Buat Halaman Login Register
+   - Buat Halaman Login
    - Buat Halaman Dashboard
    
-- **[Sprint 3](changelog/sprint-3.md) - (date from x until x)** 
+- **[Sprint 3](changelog/sprint-3.md) - (date from 30 November until 7 December)** 
    - Buat Halaman Transaksi
    - Finishing App
 
 ## Running The App
 
-TO;DO with steps
+- Buka Folder Drugmacy
+- Import db_drugmacy.sql pada phpMyAdmin
+- Nyalakan MySQL pada XAMPP atau aplikasi sejenis
+- Buka Drugmacy.jar
+- Aplikasi siap dijalankan
 
 ## Classes Used
 

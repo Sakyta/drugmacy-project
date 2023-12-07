@@ -1,26 +1,27 @@
 # Scrum Report (Sprint 3)
-| From dd/mm/yyyy to dd/mm/yyyy
+| From 30/11/2023 to 07/12/2023
 
 ## Team (Insert your name)
-| NPM           | Name        |
-| ------------- |-------------|
-| 140810xx00xx  | John Doe    |
-| 140810xx00xx  | Jane Doe    |
-| 140810xx00xx  | Lorem Ipsum |
+| NPM           | Name        | Kode |
+| ------------- |-------------|------|
+| 140810220020  | Nurkahfi Amran Rahmada    | N |
+| 140810220076  | Tabina Adelia Rafa    | R |
+| 140810220078  | Anel Fuad Abiyyu | A |
 
 ## Sprint Overview
 | Planned (n)   | Completed (n) |
 | ------------- |-------------- |
-| n             | n             |
+| 3             | 3             |
 
 ## Sprint 3 Backlog
 
 | ID  | Title/Desc | Asignee | Status |
-| --- | ---------- | ------- | ------ |
-| 3.1 | Preparing the x | Jane Doe | DONE |
-| 3.2 | Make the x | John Doe | FAILED |
+| --- | ---------- | ------- | -------|
+| 3.1 | Buat Obat Page | A | DONE
+| 3.2 | Buat Transaksi Page | N | DONE 
+| 3.3 | Styling Aplikasi | RAN | DONE
 
 ## Retrospective 
 
-Sprint kemarin dianggap terlalu sedikit sehingga diperlukan adanya penyesuaian tugas. Lorem ipsum dolor sit amet
+Sprint kali ini adalah titik darah penghabisan. Ngoding non-stop 10 jam.
 
