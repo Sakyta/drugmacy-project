@@ -6,6 +6,8 @@ package drugmacy;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.*;
+import drugmacy.Package.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author nurka
@@ -57,18 +59,18 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        jTextField_id = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        jTextField_nama = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
+        jTextField_alamat = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
+        jTextField_contact = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
+        jTextField_username = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
+        jTextField_password = new javax.swing.JTextField();
         jButton16 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -79,19 +81,19 @@ public class AdminPage extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jTextField_id2 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        jTextField_alamat1 = new javax.swing.JTextField();
+        jTextField_nama1 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        jTextField_contact1 = new javax.swing.JTextField();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
+        jTextField_password1 = new javax.swing.JTextField();
+        jTextField_username1 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jButton14 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
@@ -101,28 +103,29 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
+        jTextField_id3 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
+        jTextField_namaobat = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        jTextField21 = new javax.swing.JTextField();
+        jTextField_harga = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        jTextField22 = new javax.swing.JTextField();
+        jTextField_stok = new javax.swing.JTextField();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
+        jLabel34 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField_id5 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jTextField_namaobat1 = new javax.swing.JTextField();
+        jTextField_harga1 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jTextField_stok1 = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
@@ -251,31 +254,31 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel20.setText("Id Pegawai (Contoh : 100)");
         jPanel10.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 8, -1, -1));
-        jPanel10.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 37, 285, 30));
+        jPanel10.add(jTextField_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 37, 285, 30));
 
         jLabel21.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel21.setText("Nama");
         jPanel10.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 71, -1));
-        jPanel10.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 285, 30));
+        jPanel10.add(jTextField_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 285, 30));
 
         jLabel22.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel22.setText("Alamat");
         jPanel10.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
-        jPanel10.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 285, 30));
+        jPanel10.add(jTextField_alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 285, 30));
 
         jLabel23.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel23.setText("Contact");
         jPanel10.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 71, -1));
-        jPanel10.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 285, 30));
+        jPanel10.add(jTextField_contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 285, 30));
 
         jPanel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel24.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel24.setText("Username");
 
-        jTextField17.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField17ActionPerformed(evt);
+                jTextField_usernameActionPerformed(evt);
             }
         });
 
@@ -289,13 +292,13 @@ public class AdminPage extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField18)
+                    .addComponent(jTextField_password)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel24))
                         .addGap(0, 193, Short.MAX_VALUE))
-                    .addComponent(jTextField17))
+                    .addComponent(jTextField_username))
                 .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
@@ -304,17 +307,27 @@ public class AdminPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField_username, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField_password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jButton16.setText("Insert");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         jButton17.setText("Clear");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/AW.png"))); // NOI18N
 
@@ -322,36 +335,36 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)))
+                .addContainerGap(26, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(155, 155, 155))
-            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
-                                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(226, 226, 226)
-                        .addComponent(jLabel4)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(155, 155, 155))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(229, 229, 229))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGap(69, 69, 69)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -392,13 +405,13 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel13.setText("Id Pegawai (Contoh : 100)");
         jPanel9.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 8, -1, -1));
-        jPanel9.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 37, 285, 30));
+        jPanel9.add(jTextField_id2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 37, 285, 30));
 
         jLabel14.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel14.setText("Alamat");
         jPanel9.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 85, -1, -1));
-        jPanel9.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 114, 285, 30));
-        jPanel9.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 37, 285, 30));
+        jPanel9.add(jTextField_alamat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 114, 285, 30));
+        jPanel9.add(jTextField_nama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 37, 285, 30));
 
         jLabel15.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel15.setText("Nama");
@@ -407,22 +420,37 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel16.setText("Contact");
         jPanel9.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 85, 71, -1));
-        jPanel9.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 114, 285, 30));
+        jPanel9.add(jTextField_contact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 114, 285, 30));
 
         jButton11.setText("Clear");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
         jPanel9.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 91, 30));
 
         jButton12.setText("Delete");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
         jPanel9.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 91, 30));
 
         jButton13.setText("Update");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
         jPanel9.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 91, 30));
 
         jLabel18.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel18.setText("Password");
         jPanel9.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 100, -1));
-        jPanel9.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 285, 30));
-        jPanel9.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 285, 30));
+        jPanel9.add(jTextField_password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 285, 30));
+        jPanel9.add(jTextField_username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 285, 30));
 
         jLabel19.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel19.setText("Username");
@@ -464,8 +492,11 @@ public class AdminPage extends javax.swing.JFrame {
 
         panePage.addTab("tab3", jPanel4);
 
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
         jLabel3.setText("Input Obat");
+        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 6, -1, -1));
 
         jPanel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -473,60 +504,43 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel26.setText("Id Obat (Contoh : AAA)");
         jPanel12.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 8, -1, -1));
-        jPanel12.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 37, 530, 30));
+        jPanel12.add(jTextField_id3, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 37, 530, 30));
 
         jLabel27.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel27.setText("Nama Obat");
         jPanel12.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 120, -1));
-        jPanel12.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 530, 30));
+        jPanel12.add(jTextField_namaobat, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 530, 30));
 
         jLabel28.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel28.setText("Harga");
         jPanel12.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
-        jPanel12.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 530, 30));
+        jPanel12.add(jTextField_harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 530, 30));
 
         jLabel29.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel29.setText("Stok");
         jPanel12.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 71, -1));
-        jPanel12.add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 530, 30));
+        jPanel12.add(jTextField_stok, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 530, 30));
+
+        jPanel5.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 350, 584, 329));
 
         jButton18.setText("Insert");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 697, 110, 45));
 
         jButton19.setText("Clear");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 697, 110, 45));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(205, 205, 205))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(161, 161, 161)
-                                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
-                                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(59, 59, 59))))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(94, 94, 94))
-        );
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Obat2.png"))); // NOI18N
+        jPanel5.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
 
         panePage.addTab("tab4", jPanel5);
 
@@ -566,10 +580,25 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel10.setText("Stok");
 
         jButton6.setText("Clear");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Delete");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("Update");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -579,14 +608,14 @@ public class AdminPage extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_id5, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_namaobat1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_harga1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_stok1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
             .addGroup(jPanel8Layout.createSequentialGroup()
@@ -606,21 +635,21 @@ public class AdminPage extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField_id5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField_harga1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField_namaobat1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField_stok1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
@@ -659,9 +688,9 @@ public class AdminPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+    private void jTextField_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_usernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
+    }//GEN-LAST:event_jTextField_usernameActionPerformed
 
     private void jLabel30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel30MouseClicked
         // TODO add your handling code here:
@@ -698,6 +727,159 @@ public class AdminPage extends javax.swing.JFrame {
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        Pegawai peg = new Pegawai();
+        peg.setId(jTextField_id.getText());
+        peg.setNama(jTextField_nama.getText());
+        peg.setAlamat(jTextField_alamat.getText());
+        peg.setContact(jTextField_contact.getText());
+        peg.setUsername(jTextField_username.getText());
+        peg.setPassword(jTextField_password.getText());
+        peg.setKode("2");
+        peg.insertPegawai();
+        JOptionPane.showMessageDialog(null, "Insert Success");
+        jTextField_id.setText(null);
+        jTextField_nama.setText(null);
+        jTextField_alamat.setText(null);
+        jTextField_contact.setText(null);
+        jTextField_username.setText(null);
+        jTextField_password.setText(null);
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+        jTextField_id.setText(null);
+        jTextField_nama.setText(null);
+        jTextField_alamat.setText(null);
+        jTextField_contact.setText(null);
+        jTextField_username.setText(null);
+        jTextField_password.setText(null);     
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        jTextField_id2.setEnabled(false);
+        jTextField_nama1.setEnabled(false);
+        jTextField_alamat1.setEnabled(false);
+        jTextField_contact1.setEnabled(false);
+        jTextField_username1.setEnabled(false);
+        jTextField_password1.setEnabled(false);
+
+        Pegawai peg = new Pegawai();
+        peg.setId(jTextField_id2.getText());
+        peg.setNama(jTextField_nama1.getText());
+        peg.setAlamat(jTextField_alamat1.getText());
+        peg.setContact(jTextField_contact1.getText());
+        peg.setUsername(jTextField_username1.getText());
+        peg.setPassword(jTextField_password1.getText());
+        peg.setKode("2");
+        peg.updatePegawai();
+        
+        javax.swing.JOptionPane.showMessageDialog(null, "Update Success");
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        jTextField_id2.setEnabled(false);
+        jTextField_nama1.setEnabled(false);
+        jTextField_alamat1.setEnabled(false);
+        jTextField_contact1.setEnabled(false);
+        jTextField_username1.setEnabled(false);
+        jTextField_password1.setEnabled(false);
+
+        Pegawai peg = new Pegawai();
+        peg.setId(jTextField_id2.getText());
+        peg.setNama(jTextField_nama1.getText());
+        peg.setAlamat(jTextField_alamat1.getText());
+        peg.setContact(jTextField_contact1.getText());
+        peg.setUsername(jTextField_username1.getText());
+        peg.setPassword(jTextField_password1.getText());
+        peg.setKode("2");
+        peg.deletePegawai();
+
+        javax.swing.JOptionPane.showMessageDialog(null, "Delete Success");
+
+        jTextField_id2.setText(null);
+        jTextField_nama1.setText(null);
+        jTextField_alamat1.setText(null);
+        jTextField_contact1.setText(null);
+        jTextField_username1.setText(null);
+        jTextField_password1.setText(null);
+
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+                jTextField_id2.setText(null);
+        jTextField_nama1.setText(null);
+        jTextField_alamat1.setText(null);
+        jTextField_contact1.setText(null);
+        jTextField_username1.setText(null);
+        jTextField_password1.setText(null);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        // TODO add your handling code here:
+        Obat ob = new Obat();
+        ob.setId(jTextField_id3.getText());
+        ob.setNama(jTextField_namaobat.getText());
+        ob.setHarga(jTextField_harga.getText());
+        ob.setStok(jTextField_stok.getText());
+        ob.insertObat();
+
+        JOptionPane.showMessageDialog(null, "Insert Success");
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        // TODO add your handling code here:
+        jTextField_id3.setText(null);
+        jTextField_nama.setText(null);
+        jTextField_harga.setText(null);
+        jTextField_stok.setText(null);
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        Obat ob = new Obat();
+        ob.setId(jTextField_id5.getText());
+        ob.setNama(jTextField_namaobat1.getText());
+        ob.setHarga(jTextField_harga1.getText());
+        ob.setStok(jTextField_stok1.getText());
+        ob.updateObat();
+        JOptionPane.showMessageDialog(null, "Update Success");
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        jTextField_id5.setEnabled(false);
+        jTextField_namaobat1.setEnabled(false);
+        jTextField_harga1.setEnabled(false);
+        jTextField_stok1.setEnabled(false);
+
+        Obat ob = new Obat();
+        ob.setId(jTextField_id5.getText());
+        ob.setNama(jTextField_namaobat1.getText());
+        ob.setHarga(jTextField_harga1.getText());
+        ob.setStok(jTextField_stok1.getText());
+        ob.deleteObat();
+
+        JOptionPane.showMessageDialog(null, "Delete Success");
+
+        jTextField_id5.setText(null);
+        jTextField_namaobat1.setText(null);
+        jTextField_harga1.setText(null);
+        jTextField_stok1.setText(null);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        jTextField_id5.setText(null);
+        jTextField_namaobat1.setText(null);
+        jTextField_harga1.setText(null);
+        jTextField_stok1.setText(null);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -765,6 +947,7 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -787,28 +970,28 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextField_alamat;
+    private javax.swing.JTextField jTextField_alamat1;
+    private javax.swing.JTextField jTextField_contact;
+    private javax.swing.JTextField jTextField_contact1;
+    private javax.swing.JTextField jTextField_harga;
+    private javax.swing.JTextField jTextField_harga1;
+    private javax.swing.JTextField jTextField_id;
+    private javax.swing.JTextField jTextField_id2;
+    private javax.swing.JTextField jTextField_id3;
+    private javax.swing.JTextField jTextField_id5;
+    private javax.swing.JTextField jTextField_nama;
+    private javax.swing.JTextField jTextField_nama1;
+    private javax.swing.JTextField jTextField_namaobat;
+    private javax.swing.JTextField jTextField_namaobat1;
+    private javax.swing.JTextField jTextField_password;
+    private javax.swing.JTextField jTextField_password1;
+    private javax.swing.JTextField jTextField_stok;
+    private javax.swing.JTextField jTextField_stok1;
+    private javax.swing.JTextField jTextField_username;
+    private javax.swing.JTextField jTextField_username1;
     private javax.swing.JTabbedPane panePage;
     // End of variables declaration//GEN-END:variables
 }

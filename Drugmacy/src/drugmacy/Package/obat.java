@@ -9,14 +9,14 @@ import java.sql.ResultSet;
  *
  * @author ASUS
  */
-public class obat {
+public class Obat {
 
     private String id;
     private String nama;
     private String harga;
     private String stok;
 
-    public obat() {
+    public Obat() {
     }
 
     public String getId() {
@@ -52,26 +52,26 @@ public class obat {
     }
 
     public void insertObat() {
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
         String s = "insert into obat values ('" + this.id + "', '" + this.nama + "', '" + this.harga + "', '" + this.stok + "')";
         kon.query(s);
     }
 
     public void updateObat() {
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
         String s = "update obat set id_obat = '" + this.id + "', nama = '" + this.nama + "', harga = '" + this.harga + "', stok = '" + this.stok + "' where id_obat = '" + this.id + "'";
         kon.query(s);
     }
 
     public void deleteObat() {
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
         String s = "delete from obat where id_obat = '" + this.id + "'";
         kon.query(s);
     }
 
     public ResultSet getObat() {
         ResultSet r = null;
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
         String s = "insert into obat values ('" + this.id + "', '" + this.nama + "', '" + this.harga + "', '" + this.stok + "')";
         kon.query(s);
         return r;

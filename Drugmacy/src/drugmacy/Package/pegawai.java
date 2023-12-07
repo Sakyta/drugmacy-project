@@ -9,17 +9,17 @@ import java.sql.ResultSet;
  *
  * @author ASUS
  */
-public class pegawai {
+public class Pegawai {
 
     private String id;
     private String nama;
     private String alamat;
-    private String cp;
+    private String contact;
     private String username;
     private String password;
     private String kode;
 
-    public pegawai() {
+    public Pegawai() {
     }
 
     public String getId() {
@@ -34,8 +34,8 @@ public class pegawai {
         return alamat;
     }
 
-    public String getCp() {
-        return cp;
+    public String setContact() {
+        return contact;
     }
 
     public String getUsername() {
@@ -62,8 +62,8 @@ public class pegawai {
         this.alamat = alamat;
     }
 
-    public void setCp(String cp) {
-        this.cp = cp;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     public void setUsername(String username) {
@@ -79,27 +79,27 @@ public class pegawai {
     }
 
     public void insertPegawai() {
-        koneksi kon = new koneksi();
-        String s = "insert into pegawai values ('" + this.id + "', '" + this.nama + "', '" + this.cp + "', '" + this.alamat + "', '" + this.username + "', '" + this.password + "', '" + this.kode + "')";
+        Koneksi kon = new Koneksi();
+        String s = "insert into pegawai values ('" + this.id + "', '" + this.nama + "', '" + this.contact + "', '" + this.alamat + "', '" + this.username + "', '" + this.password + "', '" + this.kode + "')";
         kon.query(s);
     }
 
     public void updatePegawai() {
-        koneksi kon = new koneksi();
-        String s = "update pegawai set id_pegawai = '" + this.id + "', nama = '" + this.nama + "', cp = '" + this.cp + "', alamat = '" + this.alamat + "', username = '" + this.username + "', password = '" + this.password + "', kode = '" + this.kode + "' where id_pegawai = '" + this.id + "'";
+        Koneksi kon = new Koneksi();
+        String s = "update pegawai set id_pegawai = '" + this.id + "', nama = '" + this.nama + "', contact = '" + this.contact + "', alamat = '" + this.alamat + "', username = '" + this.username + "', password = '" + this.password + "', kode = '" + this.kode + "' where id_pegawai = '" + this.id + "'";
         kon.query(s);
     }
 
     public void deletePegawai() {
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
         String s = "delete from pegawai where id_pegawai = '" + this.id + "'";
         kon.query(s);
     }
 
     public ResultSet getPegawai() {
         ResultSet r = null;
-        koneksi kon = new koneksi();
-        String s = "insert into pegawai values ('" + this.id + "', '" + this.nama + "', '" + this.cp + "', '" + this.alamat + "', '" + this.username + "', '" + this.password + "', '0')";
+        Koneksi kon = new Koneksi();
+        String s = "insert into pegawai values ('" + this.id + "', '" + this.nama + "', '" + this.contact + "', '" + this.alamat + "', '" + this.username + "', '" + this.password + "', '0')";
         kon.query(s);
         return r;
     }

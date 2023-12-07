@@ -9,9 +9,8 @@ package drugmacy.Package;
  * @author ASUS
  */
 import java.sql.ResultSet;
-import code.koneksi;
 
-public class penjualan {
+public class Penjualan {
     private String id_penjualan;
     private String tgl_jual;
     private long total;
@@ -19,7 +18,7 @@ public class penjualan {
     private String id_obat;
     private String id_pelanggan;
 
-    public penjualan() {}
+    public Penjualan() {}
 
     // Getter and setter methods for each attribute
 
@@ -50,7 +49,7 @@ public class penjualan {
     // Other methods remain unchanged
 
     public void insertPenjualan() {
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
 
         String s = "INSERT INTO penjualan (id_penjualan, tgl_jual, total, id_pegawai, id_obat, id_pelanggan) VALUES ('" +
                 this.id_penjualan + "', '" + this.tgl_jual + "', " + this.total + ", '" +
@@ -60,7 +59,7 @@ public class penjualan {
     }
     
 public void updatePenjualan() {
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
         String s = "UPDATE penjualan SET tgl_jual = '" + this.tgl_jual +
                 "', total = " + this.total +
                 ", id_pegawai = '" + this.id_pegawai +
@@ -71,14 +70,14 @@ public void updatePenjualan() {
     }
 
     public void deletePenjualan() {
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
         String s = "DELETE FROM penjualan WHERE id_penjualan = '" + this.id_penjualan + "'";
         kon.query(s);
     }
 
     public ResultSet getPenjualan() {
         ResultSet r = null;
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
         String s = "SELECT * FROM penjualan WHERE id_penjualan = '" + this.id_penjualan + "'";
         r = kon.getData(s);
         return r;

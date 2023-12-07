@@ -5,6 +5,8 @@
 package drugmacy;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.*;
+import java.sql.ResultSet;
+import drugmacy.Package.Koneksi;
 
 /**
  *
@@ -48,10 +50,10 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField_username = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        jPasswordField_password = new javax.swing.JPasswordField();
+        jButton_login = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -72,21 +74,21 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Username");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 105, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 320, 30));
+        jPanel1.add(jTextField_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 320, 30));
 
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Password");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 320, 30));
+        jPanel1.add(jPasswordField_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 320, 30));
 
-        jButton2.setText("Login");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton_login.setText("Login");
+        jButton_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton_loginActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 130, 40));
+        jPanel1.add(jButton_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,9 +105,63 @@ public class LoginForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_loginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+            if (jTextField_username.getText().equals("") && jPasswordField_password.getText().equals("")) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Please Complete the Fields");
+        } else if (jTextField_username.getText().equals("")) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Please Complete the Username Field");
+        } else if (jPasswordField_password.getText().equals("")) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Please Complete the Password Field");
+        } else {
+            Koneksi kon = new Koneksi();
+            ResultSet rs = null;
+
+            try {
+                rs = kon.getData("select * from pegawai where username = '"
+                        + jTextField_username.getText() + "' and password = '"
+                        + jPasswordField_password.getText() + "' and kode = '1'");
+
+                if (rs.next()) {
+                    javax.swing.JOptionPane.showMessageDialog(null, "Login Success");
+                    AdminPage adm = new AdminPage();
+                    adm.setVisible(true);
+                    dispose();
+                    jTextField_username.setEnabled(false);
+                    jPasswordField_password.setEnabled(false);
+                    jButton_login.setEnabled(false);
+                } else {
+                    // If no result for admin, check for user login
+                    rs = kon.getData("select * from pegawai where username = '"
+                            + jTextField_username.getText() + "' and password = '"
+                            + jPasswordField_password.getText() + "' and kode = '2'");
+
+                    if (rs.next()) {
+                        javax.swing.JOptionPane.showMessageDialog(null, "Login Success");
+                        UserPage us = new UserPage();
+                        us.setVisible(true);
+                        dispose();
+                        jTextField_username.setEnabled(false);
+                        jPasswordField_password.setEnabled(false);
+                        jButton_login.setEnabled(false);
+                    } else {
+                        javax.swing.JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+                    }
+                }
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+            } finally {
+                try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                } catch (Exception e) {
+                    // Handle the exception, if needed
+                }
+            }
+        }
+
+    }//GEN-LAST:event_jButton_loginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,13 +188,13 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton_login;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPasswordField_password;
+    private javax.swing.JTextField jTextField_username;
     // End of variables declaration//GEN-END:variables
 }

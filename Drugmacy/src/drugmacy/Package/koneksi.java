@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-public class koneksi {
+public class Koneksi {
     private String DB_URL = "jdbc:mysql://localhost:3306/drugmacy";
     private String DB_USER = "root";
     private String DB_PASSWORD = "";
@@ -16,7 +16,7 @@ public class koneksi {
     private Statement stmt = null;
     private ResultSet rs = null;
 
-    public koneksi() {
+    public Koneksi() {
         try {
             // Load the JDBC driver
             Class.forName("com.mysql.cj.jdbc.Driver");

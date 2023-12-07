@@ -10,7 +10,7 @@ package drugmacy.Package;
  */
 import java.sql.ResultSet;
 
-public class pelanggan {
+public class Pelanggan {
 
     private String id;
     private String nama;
@@ -18,7 +18,7 @@ public class pelanggan {
     private String cp;
     private String status;
 
-    public pelanggan() {
+    public Pelanggan() {
     }
 
     public String getId() {
@@ -62,28 +62,28 @@ public class pelanggan {
     }
 
     public void insertPelanggan() {
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
         String s = "insert into pelanggan values ('" + this.id + "', '" + this.nama + "', '" + this.cp + "', '"
                 + this.alamat + "')";
         kon.query(s);
     }
 
     public void updatePelanggan() {
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
         String s = "update pelanggan set id_pelanggan = '" + this.id + "', nama = '" + this.nama + "', cp = '"
                 + this.cp + "', alamat = '" + this.alamat + "' where id_pelanggan = '" + this.id + "'";
         kon.query(s);
     }
 
     public void deletePelanggan() {
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
         String s = "delete from pelanggan where id_pelanggan = '" + this.id + "'";
         kon.query(s);
     }
 
     public ResultSet getPelanggan() {
         ResultSet r = null;
-        koneksi kon = new koneksi();
+        Koneksi kon = new Koneksi();
         String s = "insert into pelanggan values ('" + this.id + "', '" + this.nama + "', '" + this.cp + "', '"
                 + this.alamat + "')";
         kon.query(s);
